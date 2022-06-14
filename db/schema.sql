@@ -1,20 +1,20 @@
-DROP TABLE IF EXISTS department;
-DROP TABLE IS EXISTS role;
-DROP TABLE IS EXISTS employee;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IS EXISTS roles;
+DROP TABLE IS EXISTS employees;
 
-CREATE TABLE department (
+CREATE TABLE departments (
     id INTERGER AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30)
 );
 
-CREATE TABLE role (
+CREATE TABLE roles (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30),
     salary DECIMAL, 
     department_id INTEGER
 );
 
-CREATE TABLE employee (
+CREATE TABLE employees (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(30),
     last_name VARCHAR(30),

@@ -1,20 +1,29 @@
 //dependency
-const mysql = require('mysql2')
+const mysql = require("mysql2");
+
+require("dotenv").config();
 
 const db = mysql.createConnection(
-    {
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'lol',
-    database: ''
-},
-console.log('Connected to the company database'));
-//queries will be in a class and i export them for index depending on what user wants to do
+  {
+    host: "127.0.0.1",
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+  },
+  console.log("Connected to the company database")
+);
 
-//routes refernce connection
+db.connect(function (error) {
+  if (error) throw error;
+  afterConnection();
+}),
 
-//index fetches routes , passes the data to be used in the queries 
-
-// server that requires msql2 and connects to database
-
-module.exports = db;
+afterConnection = () => {
+    console.log("***********************************")
+    console.log("*                                 *")
+    console.log("*        COMPANY DATABASE         *")
+    console.log("*                                 *")
+    console.log("***********************************")
+    promptUser();
+};
+  (module.exports = db);
