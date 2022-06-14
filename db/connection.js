@@ -1,12 +1,14 @@
 //dependency
 const mysql = require('mysql2')
 
-const db = mysql.createConnection({
+const db = mysql.createConnection(
+    {
     host: '127.0.0.1',
     user: 'root',
     password: 'lol',
     database: ''
-});
+},
+console.log('Connected to the company database'));
 //queries will be in a class and i export them for index depending on what user wants to do
 
 //routes refernce connection
