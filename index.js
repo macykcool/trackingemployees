@@ -41,29 +41,29 @@ const promptUser = () => {
         ],
       }])
     .then((answers) => {
-      const { choice } = answers;
-      if (choice === "View All Employees") {
+      const { choices } = answers;
+      if (choices === "View All Employees") {
         viewAllEmployees();
       } 
-      if (choice === "Add Emplyee") {
+      if (choices === "Add Emplyee") {
         addEmployee();
       } 
-      if (choice === "Update Employee Role") {
+      if (choices === "Update Employee Role") {
         updateEmployeeRole();
       } 
-      if (choice === "View All Roles") {
+      if (choices === "View All Roles") {
         viewAllRoles();
       } 
-      if (choice === "Add Role") {
+      if (choices === "Add Role") {
         addRole();
       } 
-      if (choice === "View All Departments") {
+      if (choices === "View All Departments") {
         viewAllDepartments();
       } 
-      if (choice === "Add Department") {
+      if (choices === "Add Department") {
         addDepartment();
       } 
-      if (choice === "Quit") {
+      if (choices === "Quit") {
         db.end();
       }
     });
