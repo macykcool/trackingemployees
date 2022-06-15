@@ -11,7 +11,7 @@ const db = mysql.createConnection({
   database: "company_db",
 });
 
-db.connect((err) => {
+db.connect(err => {
   if (err) throw err;
 
   console.table("***********************************");
@@ -22,12 +22,12 @@ db.connect((err) => {
   promptUser();
 });
 
-function promptUser() {
+const promptUser = () => {
   inquirer
     .prompt([
       {
         message: "What would you like to do?",
-        name: "Choice",
+        name: "choices",
         type: "list",
         choices: [
           "View All Employees",
@@ -39,33 +39,39 @@ function promptUser() {
           "Add Department",
           "Quit",
         ],
-      },
-    ])
+      }])
     .then((answers) => {
-      let choice = answers.choice;
+      const { choice } = answers;
       if (choice === "View All Employees") {
         viewAllEmployees();
-      } else if (choice === "Add Emplyee") {
+      } 
+      if (choice === "Add Emplyee") {
         addEmployee();
-      } else if (choice === "Update Employee Role") {
+      } 
+      if (choice === "Update Employee Role") {
         updateEmployeeRole();
-      } else if (choice === "View All Roles") {
+      } 
+      if (choice === "View All Roles") {
         viewAllRoles();
-      } else if (choice === "Add Role") {
+      } 
+      if (choice === "Add Role") {
         addRole();
-      } else if (choice === "View All Departments") {
+      } 
+      if (choice === "View All Departments") {
         viewAllDepartments();
-      } else if (choice === "Add Department") {
+      } 
+      if (choice === "Add Department") {
         addDepartment();
-      } else if (choice === "Quit") {
-        quitPrompt();
+      } 
+      if (choice === "Quit") {
+        db.end();
       }
     });
 }
 
 function viewAllEmployees() {
   db.query(
-    'SELECT employee.first_name AS "Name" FROM employees;',
+    'SELECT * FROM employees;',
     (error, results) => {
       if (error) {
         throw error;
@@ -220,7 +226,7 @@ function updateEmployeeRole() {
 
 function viewAllRoles() {
   db.query(
-    'SELECT r.title AS Roles, r.salary AS "Salary", d.name AS "Departments" FROM roles r JOIN department d ON .id = r.department ORDER BY Departments desc;',
+    'SELECT * FROM departments',
     (error, results) => {
       if (error) {
         throw error;
@@ -333,7 +339,7 @@ function addDepartment() {
     });
 }
 
-function quitPrompt() {
-  console.table("Exiting Employee Tracker Database");
-  process.exit();
-}
+// function quitPrompt() {
+//   console.table("Exiting Employee Tracker Database");
+//   db.end();
+// }
