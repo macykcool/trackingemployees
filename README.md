@@ -15,7 +15,6 @@ SO THAT I can organize and plan my business
 - [Demo Preview](#demo-preview)
 - [Demo Video Link](#demo-video-link)
 - [Github Repository](#github-repository)
-- [Heroku Deployed](#heroku-deployed)
 
 ## Description
 GIVEN a command-line application that accepts user input
@@ -37,9 +36,7 @@ WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 
 ## Installation Instructions  
- 
-
-## Process
+ Download zip or clone repo. 'npm init' then 'npm install'. Then initiate MYSQL with -u and -p. Then run 'source db/schema.sql;' then 'source db/seeds.sql;' then 'USE company_db;' maybe then 'SELECT * FROM employees;' to see if its working. and then 'quit'. NEXT 'npm start' and it should run you through the prompt.
 
 
 ## Demo Preview
@@ -50,8 +47,6 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 ## Github Repository
 https://github.com/macykcool/trackingemployees
-
-## Heroku Deployed
 
 
 ## Made with ❤️️ by Macy Mannix
