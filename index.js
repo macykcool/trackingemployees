@@ -1,9 +1,9 @@
+//dependencies
 const mysql = require("mysql2");
 const inquirer = require("inquirer");
 const table = require("console.table");
 
-require("dotenv").config();
-
+//sql credentials and /db connection
 const db = mysql.createConnection({
   host: "127.0.0.1",
   user: "root",
@@ -11,6 +11,7 @@ const db = mysql.createConnection({
   database: "company_db",
 });
 
+//greeting banner 
 db.connect(err => {
   if (err) throw err;
 
@@ -22,6 +23,7 @@ db.connect(err => {
   promptUser();
 });
 
+//questions and menu
 const promptUser = () => {
   inquirer
     .prompt([
@@ -45,7 +47,7 @@ const promptUser = () => {
       if (choices === "View All Employees") {
         viewAllEmployees();
       } 
-      if (choices === "Add Emplyee") {
+      if (choices === "Add Employee") {
         addEmployee();
       } 
       if (choices === "Update Employee Role") {
@@ -69,6 +71,7 @@ const promptUser = () => {
     });
 }
 
+//functions for the choices and communicates to /db
 function viewAllEmployees() {
   db.query(
     'SELECT * FROM employees;',
@@ -83,7 +86,7 @@ function viewAllEmployees() {
 }
 
 function addEmployee() {
-  db.query("SELECT * FROM roles", (error, results) => {
+  db.query("SELECT * FROM employees", (error, results) => {
     if (error) throw error;
     inquirer
       .prompt([
@@ -116,7 +119,7 @@ function addEmployee() {
         {
           name: "manager_id",
           type: "input",
-          message: "Manager ID?",
+          message: "Manager ID",
           validate: (Input) => {
             if (Input) {
               return true;
@@ -161,6 +164,7 @@ function addEmployee() {
         );
       });
   });
+
 }
 
 function updateEmployeeRole() {
@@ -226,7 +230,7 @@ function updateEmployeeRole() {
 
 function viewAllRoles() {
   db.query(
-    'SELECT * FROM departments',
+    'SELECT * FROM roles',
     (error, results) => {
       if (error) {
         throw error;
@@ -238,7 +242,7 @@ function viewAllRoles() {
 }
 
 function addRole() {
-  db.query("SELECT * FROM departments", (err, res) => {
+  db.query("SELECT * FROM roles", (err, res) => {
     if (err) throw err;
     inquirer
       .prompt([
@@ -304,7 +308,7 @@ function addRole() {
 }
 
 function viewAllDepartments() {
-  db.query("SELECT * FROM department", (error, results) => {
+  db.query("SELECT * FROM departments", (error, results) => {
     if (error) {
       throw error;
     }
@@ -339,7 +343,3 @@ function addDepartment() {
     });
 }
 
-// function quitPrompt() {
-//   console.table("Exiting Employee Tracker Database");
-//   db.end();
-// }
