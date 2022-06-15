@@ -1,4 +1,4 @@
-INSERT INTO department (name)
+INSERT INTO departments (name)
 VALUES
 ('Executive'),
 ('Budgets'),
@@ -6,7 +6,7 @@ VALUES
 ('Legal'),
 ('Contracts');
 
-INSERT INTO  role (title, salary, department_id)
+INSERT INTO  roles (job_title, salary, dept_id)
 VALUES
 ('Director', 350000, 1),
 ('Budget Chief', 250000, 2),
@@ -18,18 +18,18 @@ VALUES
 ('Contract Analyst', 100000, 5),
 ('Intern', 60000, 3);
 
-INSERT INTO  employee (first_name, last_name, role_id, manager_id)
+INSERT INTO  employees (first_name, last_name, role_id, manager_id)
 VALUES
-('Macy Mannix', 1, null),
-('Sharon Needles', 2, 1),
-('Ru Paul', 3, 1),
-('Alyssa Edwards', 4, 1),
-('Nicky Hilton', 5, 1),
-('Alaska Ball', 6, 2),
-('Jeff Probst', 7, 4),
-('Teal Swan', 8, 5),
-('Santino Rice', 9, 3),
-('John Early', 10, 2),
-('Bobby Finger', 11, 5),
-('Lindsay Weber', 12, 2),
-('Gordon Tan', 13, 3);
+('Macy', 'Mannix', 1, NULL),
+('Sharon', 'Needles', 2, 1),
+('Ru', 'Paul', 3, 1),
+('Alyssa', 'Edwards', 4, 1),
+('Nicky', 'Hilton', 5, 1),
+('Alaska', 'Ball', 6, 2),
+('Jeff', 'Probst', 7, 4),
+('Teal', 'Swan', 8, 5),
+('Santino', 'Rice', 9, 3),
+('John', 'Early', 9, 2),
+('Bobby', 'Finger', 9, 5),
+('Lindsay', 'Weber', 9, 2),
+('Gordon', 'Tan', 9, 3);
