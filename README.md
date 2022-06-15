@@ -40,10 +40,10 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 
 ## Demo Preview
-![Employee Tracker demo](./gif/track_employees.gif)
+![Employee Tracker demo](./gif/track.gif)
 
 ## Demo Video Link
-
+https://drive.google.com/file/d/1-t-D1UPzUjYFT7yoxYJylSn3aHIetpSn/view
 
 ## Github Repository
 https://github.com/macykcool/trackingemployees
